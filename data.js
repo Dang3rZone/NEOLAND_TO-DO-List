@@ -1,6 +1,7 @@
 'use strict';
+let tasks = [];
 
-const tasks = [
+tasks = [
   {
     id: 1,
     name: 'Practice TS & Angular',
