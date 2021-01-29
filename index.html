@@ -3,6 +3,8 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
     <link
       href="https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap"
       rel="stylesheet"
@@ -13,11 +15,42 @@
       integrity="sha512-HK5fgLBL+xu6dm/Ii3z4xhlSUyZgTT9tuc/hSrtw6uzJOvgRr2a9jyxxT1ely+B+xFAmJKVSTbpM/CuL7qxO8w=="
       crossorigin="anonymous"
     />
+    <script src="data.js" defer></script>
     <script src="app.js" defer></script>
+    <script src="selectors.js" defer></script>
+
     <link rel="stylesheet" href="styles.css" />
-    <title>Neoland To-Do-List</title>
+    <title>To-Do List</title>
   </head>
   <body>
-    <h1>Hi</h1>
+    <!-- TITLE -->
+    <header>
+      <h1>Neoland To-do List</h1>
+    </header>
+    <!-- TASKS INPUT -->
+    <form>
+      <input class="todo-input" type="text" />
+      <button class="todo-btn" type="submit">
+        <i class="fas fa-plus-circle"></i>
+      </button>
+      <!-- FILTERS -->
+      <div class="select">
+        <select name="todos" class="filter-todo">
+          <option value="all">Urgente</option>
+          <option value="all">Diaria</option>
+          <option value="all">Mensual</option>
+        </select>
+      </div>
+    </form>
+    <!-- HERE GOES THE TASKS -->
+    <div class="todo-container">
+      <ul class="todo-list">
+        <!-- <div class="todo">
+          <li></li>
+          <button>Delete</button>
+          <button>Done</button>
+        </div> -->
+      </ul>
+    </div>
   </body>
 </html>

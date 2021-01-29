@@ -11,3 +11,50 @@ body {
   font-family: 'Roboto Mono', sans-serif;
   min-height: 100vh;
 }
+
+header {
+  font-size: 1.5rem;
+}
+
+header,
+form {
+  min-height: 20vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+form input,
+form button {
+  padding: 0.5rem;
+  font-size: 2rem;
+  border: none;
+  background: #fff;
+}
+
+form button {
+  color: green;
+  background: #fff;
+  cursor: pointer;
+  transition: all 0.4s ease-out;
+}
+
+form button:hover {
+  background: lightgreen;
+  color: #fff;
+}
+
+select {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  outline: none;
+  border: none;
+}
+
+select {
+  color: #eb5757;
+  width: 7.5rem;
+  cursor: pointer;
+  padding: 1rem;
+}
