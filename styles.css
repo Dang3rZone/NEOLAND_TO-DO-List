@@ -18,7 +18,7 @@ header {
 
 header,
 form {
-  min-height: 20vh;
+  min-height: 10vh;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -48,13 +48,11 @@ select {
   appearance: none;
   outline: none;
   border: none;
-}
-
-select {
-  color: #eb5757;
+  color: #fff;
   width: 7.5rem;
   cursor: pointer;
-  padding: 1rem;
+  padding: 1.2rem;
+  background: #eb5757;
 }
 
 .select {
@@ -63,6 +61,16 @@ select {
   overflow: hidden;
 }
 
+.select form input {
+  padding: 0.5rem;
+  font-size: 2rem;
+  border: none;
+  background: #fff;
+}
+
+.select select {
+  background: green;
+}
 .todo-container {
   display: flex;
   justify-content: center;

@@ -28,20 +28,33 @@
       <h1>Neoland To-do List</h1>
     </header>
     <!-- TASKS INPUT -->
+
     <form>
-      <input class="todo-input" type="text" />
+      <input class="todo-input" type="text" placeholder="Add to-do" />
+      <select name="todos" class="filter-todo">
+        <option value="all">Select</option>
+        <option value="all">important</option>
+        <option value="all">daily</option>
+        <option value="all">monthly</option>
+      </select>
       <button class="todo-btn" type="submit">
         <i class="fas fa-plus-circle"></i>
       </button>
-      <!-- FILTERS -->
-      <div class="select">
-        <select name="todos" class="filter-todo">
-          <option value="all">Urgente</option>
-          <option value="all">Diaria</option>
-          <option value="all">Mensual</option>
-        </select>
-      </div>
     </form>
+
+    <!-- FILTERS -->
+
+    <div class="select">
+      <form action="">
+        <select name="todos" class="filter-todo">
+          <option value="all">Select</option>
+          <option value="all">important</option>
+          <option value="all">daily</option>
+          <option value="all">monthly</option>
+          <input class="todo-input" type="text" placeholder="search to-dos" />
+        </select>
+      </form>
+    </div>
     <!-- HERE GOES THE TASKS -->
     <div class="todo-container">
       <ul class="todo-list">
