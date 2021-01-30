@@ -8,3 +8,4 @@ const filterOption = document.querySelector('.filter-todo');
 const selectPriority = document.querySelector('.select-priority');
 
 todoButton.addEventListener('click', addTodo);
+todoList.addEventListener('click', deleteTask);

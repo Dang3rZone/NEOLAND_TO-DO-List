@@ -36,3 +36,24 @@ function addTodo(e) {
     todoInput.value = '';
   }
 }
+
+// DELETE FUNCTION
+function deleteTask(e) {
+  //   console.log(e.target);
+  const item = e.target;
+
+  // DELETE
+  if (item.classList[0] === 'delete-btn') {
+    const todo = item.parentElement;
+    todo.classList.add('delete-animation');
+
+    todo.remove();
+  }
+
+  // DONE
+
+  if (item.classList[0] === 'complete-btn') {
+    const todo = item.parentElement;
+    todo.classList.toggle('completed');
+  }
+}
