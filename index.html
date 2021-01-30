@@ -16,26 +16,27 @@
       crossorigin="anonymous"
     />
     <script src="data.js" defer></script>
-    <script src="selectors.js" defer></script>
     <script src="app.js" defer></script>
+    <script src="selectors.js" defer></script>
 
     <link rel="stylesheet" href="styles.css" />
     <title>To-Do List</title>
   </head>
+
   <body>
     <!-- TITLE -->
     <header>
       <h1>Neoland To-do List</h1>
     </header>
-    <!-- TASKS INPUT -->
 
+    <!-- TASKS INPUT -->
     <form>
       <input class="todo-input" type="text" placeholder="Add to-do" />
-      <select name="todos" class="filter-todo">
-        <option value="all">Select</option>
-        <option value="all">important</option>
-        <option value="all">daily</option>
-        <option value="all">monthly</option>
+      <select name="todos" class="select-priority" required>
+        <option value="">Select</option>
+        <option value="important">important</option>
+        <option value="daily">daily</option>
+        <option value="monthly">monthly</option>
       </select>
       <button class="todo-btn" type="submit">
         <i class="fas fa-plus-circle"></i>
@@ -43,18 +44,18 @@
     </form>
 
     <!-- FILTERS -->
-
     <div class="select">
       <form action="">
         <select name="todos" class="filter-todo">
-          <option value="all">Select</option>
-          <option value="all">important</option>
-          <option value="all">daily</option>
-          <option value="all">monthly</option>
+          <option value="">Select</option>
+          <option value="important">important</option>
+          <option value="daily">daily</option>
+          <option value="monthly">monthly</option>
           <input class="todo-input" type="text" placeholder="search to-dos" />
         </select>
       </form>
     </div>
+
     <!-- HERE GOES THE TASKS -->
     <div class="todo-container">
       <ul class="todo-list">

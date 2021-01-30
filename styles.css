@@ -66,11 +66,15 @@ select {
   font-size: 2rem;
   border: none;
   background: #fff;
+  border-radius: 3px;
+  background: lightcyan;
 }
 
 .select select {
   background: green;
+  border-radius: 3px;
 }
+
 .todo-container {
   display: flex;
   justify-content: center;
@@ -80,4 +84,38 @@ select {
 .fa-check-double,
 .fa-trash-alt {
   pointer-events: none;
+}
+
+.todo-list {
+  min-width: 30%;
+  list-style: none;
+}
+
+.todo {
+  margin: 0.5rem;
+  background: #fff;
+  color: #000000;
+  font-size: 1.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: all 0.4s ease-in-out;
+}
+
+.delete-btn,
+.complete-btn {
+  background: #eb5757;
+  color: #fff;
+  border: none;
+  padding: 0.5rem;
+  cursor: pointer;
+  font-size: 2rem;
+}
+
+.complete-btn {
+  background: green;
+}
+
+li.todo-item {
+  padding: 0rem 15rem;
 }
