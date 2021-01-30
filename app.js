@@ -54,3 +54,47 @@ function deleteTask(e) {
     todo.classList.toggle('completed');
   }
 }
+
+// FILTER TASKS
+function filterTodo(e) {
+  e.preventDefault();
+  const todos = todoList.childNodes;
+  //   console.log(todos);
+  todos.forEach((todo) => {
+    switch (e.target.value) {
+      case 'all':
+        todo.style.display = 'flex';
+        break;
+
+      case 'completed':
+        if (todo.classList.contains('completed')) {
+          todo.style.display = 'flex';
+        } else {
+          todo.style.display = 'none';
+        }
+        break;
+
+      case 'uncompleted':
+        if (!todo.classList.contains('completed')) {
+          todo.style.display = 'flex';
+        } else {
+          todo.style.display = 'none';
+        }
+        break;
+
+      case 'important':
+        color = 'tomato';
+
+        break;
+
+      case 'daily':
+        color = 'lightyellow';
+
+        break;
+
+      case 'monthly':
+        color = 'lightgreen';
+        break;
+    }
+  });
+}
