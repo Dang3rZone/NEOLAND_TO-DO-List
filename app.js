@@ -1,12 +1,52 @@
 'use strict';
 
+const printTasks = (task) => {
+  let idCounter = 0;
+  todoList.innerHTML = '';
+  for (let todo of task) {
+    let color = '';
+    switch (todo.prioridad) {
+      case 'important':
+        color = 'tomato';
+        break;
+
+      case 'daily':
+        color = 'yellow';
+        break;
+
+      case 'monthly':
+        color = 'lightgreen';
+        break;
+    }
+
+    idCounter++;
+    todoList.innerHTML += `
+    <div class="todo" style='background-color:${color}'data-id='${idCounter}'>
+        <li class="todo-item" style='margin-right:200px;'>${todo.name}</li>
+        <button class="complete-btn"id='eliminar'><i class="fas fa-check-double"></i></button>
+        <button class="delete-btn"id='eliminar'><i class="fas fa-trash-alt"></i></button>
+    </div>`;
+  }
+};
+
+function getTypeNombre(e) {
+  //todos los elementos de tipo formulario recojo su valor con la propiedad value
+  let tipoNombre = e.target.value;
+
+  printTasks(tasks);
+}
+
 function addTodo(e) {
   // no loading bro
   e.preventDefault();
   //   console.log('hello');
+
   if (todoInput.value == '' || selectPriority.value == '') {
     alert('Gotta add a task dude!');
   } else {
+    // ADDING NEW TAKS TO DATA
+    tasks.push(todoInput.value);
+
     //CREATING ELEMENTS FOR THE TO DOS
     const createTodo = document.createElement('div');
     createTodo.classList.add('todo');
@@ -61,6 +101,7 @@ function filterTodo(e) {
   const todos = todoList.childNodes;
   //   console.log(todos);
   todos.forEach((todo) => {
+    let color;
     switch (e.target.value) {
       case 'all':
         todo.style.display = 'flex';

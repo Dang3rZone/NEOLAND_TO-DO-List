@@ -15,9 +15,7 @@
       integrity="sha512-HK5fgLBL+xu6dm/Ii3z4xhlSUyZgTT9tuc/hSrtw6uzJOvgRr2a9jyxxT1ely+B+xFAmJKVSTbpM/CuL7qxO8w=="
       crossorigin="anonymous"
     />
-    <script src="data.js" defer></script>
-    <script src="app.js" defer></script>
-    <script src="selectors.js" defer></script>
+    <script src="data.js"></script>
 
     <link rel="stylesheet" href="styles.css" />
     <title>To-Do List</title>
@@ -30,27 +28,28 @@
     </header>
 
     <!-- TASKS INPUT -->
-    <form>
-      <input class="todo-input" type="text" placeholder="Add to-do" />
-      <select name="todos" class="select-priority" required>
-        <option value="">Select</option>
-        <option value="important">important</option>
-        <option value="daily">daily</option>
-        <option value="monthly">monthly</option>
-      </select>
-      <button class="todo-btn" type="submit">
-        <i class="fas fa-plus-circle"></i>
-      </button>
-    </form>
-
+    <div class="createTodo">
+      <form>
+        <input class="todo-input" type="text" placeholder="Add to-do" />
+        <select name="todos" class="select-priority" required>
+          <option value="">Select</option>
+          <option value="important">important</option>
+          <option value="daily">daily</option>
+          <option value="monthly">monthly</option>
+        </select>
+        <button class="todo-btn" type="submit">
+          <i class="fas fa-plus-circle"></i>
+        </button>
+      </form>
+    </div>
     <!-- FILTERS -->
     <div class="select">
       <form>
         <select name="todos" class="filter-todo">
           <option value="">Select</option>
           <option value="all">all</option>
-          <option value="completed">completed</option>
-          <option value="uncompleted">uncompleted</option>
+          <!-- <option value="completed">completed</option>
+          <option value="uncompleted">uncompleted</option> -->
           <option value="important">important</option>
           <option value="daily">daily</option>
           <option value="monthly">monthly</option>
@@ -69,5 +68,8 @@
         </div> -->
       </ul>
     </div>
+
+    <script src="app.js"></script>
+    <script src="selectors.js"></script>
   </body>
 </html>
