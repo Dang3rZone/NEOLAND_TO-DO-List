@@ -5,23 +5,23 @@ tasks = [
   {
     id: 1,
     name: 'Practice TS & Angular',
-    prioridad: 'important',
+    priority: 'important',
   },
 
   {
     id: 2,
     name: 'Walk Aika',
-    prioridad: 'daily',
+    priority: 'daily',
   },
 
   {
     id: 3,
     name: 'Do some Hacking',
-    prioridad: 'monthly',
+    priority: 'monthly',
   },
   {
     id: 4,
     name: 'Fasting',
-    prioridad: 'important',
+    priority: 'important',
   },
 ];

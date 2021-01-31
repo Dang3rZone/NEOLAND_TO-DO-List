@@ -1,11 +1,14 @@
 'use strict';
 
+let idCounter = 0;
+
+// print data tasks array
 const printTasks = (task) => {
-  let idCounter = 0;
   todoList.innerHTML = '';
   for (let todo of task) {
     let color = '';
-    switch (todo.prioridad) {
+
+    switch (todo.priority) {
       case 'important':
         color = 'tomato';
         break;
@@ -20,59 +23,56 @@ const printTasks = (task) => {
     }
 
     idCounter++;
+
     todoList.innerHTML += `
-    <div class="todo" style='background-color:${color}'data-id='${idCounter}'>
-        <li class="todo-item" style='margin-right:200px;'>${todo.name}</li>
-        <button class="complete-btn"id='eliminar'><i class="fas fa-check-double"></i></button>
-        <button class="delete-btn"id='eliminar'><i class="fas fa-trash-alt"></i></button>
+    <div class="todo ${todo.priority}" style='background-color:${color}'data-id='${idCounter}'>
+        <li class="todo-item">${todo.name}</li>
+        <button class="complete-btn"><i class="fas fa-check-double"></i></button>
+        <button class="delete-btn"><i class="fas fa-trash-alt"></i></button>
     </div>`;
   }
 };
 
-function getTypeNombre(e) {
-  //todos los elementos de tipo formulario recojo su valor con la propiedad value
-  let tipoNombre = e.target.value;
-
-  printTasks(tasks);
-}
-
+// ADD NEW TODO TO THE LIST
 function addTodo(e) {
-  // no loading bro
   e.preventDefault();
-  //   console.log('hello');
-
-  if (todoInput.value == '' || selectPriority.value == '') {
+  if (selectPriority.value == '' || todoInput == '') {
     alert('Gotta add a task dude!');
   } else {
-    // ADDING NEW TAKS TO DATA
-    tasks.push(todoInput.value);
+    let color = '';
+    switch (selectPriority.value) {
+      case 'important':
+        color = 'tomato';
 
-    //CREATING ELEMENTS FOR THE TO DOS
-    const createTodo = document.createElement('div');
-    createTodo.classList.add('todo');
+        break;
 
-    const newTodo = document.createElement('li');
-    newTodo.innerText = todoInput.value;
-    newTodo.classList.add('todo-item');
+      case 'daily':
+        color = 'yellow';
 
-    createTodo.appendChild(newTodo);
+        break;
 
-    // TAKS DONE BTN
-    const doneBtn = document.createElement('button');
-    doneBtn.innerHTML = '<i class="fas fa-check-double"></i>';
-    doneBtn.classList.add('complete-btn');
-    createTodo.appendChild(doneBtn);
+      case 'monthly':
+        color = 'lightgreen';
+        break;
+    }
 
-    // DELETE TASK BTN
-    const deleteBtn = document.createElement('button');
-    deleteBtn.innerHTML = '<i class="fas fa-trash-alt"></i>';
-    deleteBtn.classList.add('delete-btn');
-    createTodo.appendChild(deleteBtn);
+    idCounter++;
 
-    // ADDING TO LIST
-    todoList.appendChild(createTodo);
+    todoList.innerHTML += `
+    <div class="todo" style='background-color:${color}' data-id='${idCounter}'>
+          <li class="todo-item ${color}">${todoInput.value}</li>
+          <button class="complete-btn"><i class="fas fa-check-double"></i></button>
+          <button class="delete-btn"><i class="fas fa-trash-alt"></i></button>
+    </div>`;
 
-    // CLEAN THE INPUT
+    let newTask = {
+      id: idCounter,
+      name: todoInput.value,
+      priority: selectPriority.value,
+    };
+    // push to array
+    tasks.push(newTask);
+    // clean inout but alert only goes one time
     todoInput.value = '';
   }
 }
@@ -95,47 +95,20 @@ function deleteTask(e) {
   }
 }
 
-// FILTER TASKS
+// FILTER TASKS BY PRIORITY
 function filterTodo(e) {
-  e.preventDefault();
-  const todos = todoList.childNodes;
-  //   console.log(todos);
-  todos.forEach((todo) => {
-    let color;
-    switch (e.target.value) {
-      case 'all':
-        todo.style.display = 'flex';
-        break;
-
-      case 'completed':
-        if (todo.classList.contains('completed')) {
-          todo.style.display = 'flex';
-        } else {
-          todo.style.display = 'none';
-        }
-        break;
-
-      case 'uncompleted':
-        if (!todo.classList.contains('completed')) {
-          todo.style.display = 'flex';
-        } else {
-          todo.style.display = 'none';
-        }
-        break;
-
-      case 'important':
-        color = 'tomato';
-
-        break;
-
-      case 'daily':
-        color = 'lightyellow';
-
-        break;
-
-      case 'monthly':
-        color = 'lightgreen';
-        break;
-    }
+  let type = e.target.value;
+  let list = filterList(type, tasks);
+  if (type != '') {
+    printTasks(list);
+  } else {
+    printTasks(tasks);
+  }
+}
+function filterList(priority, tasks) {
+  let filteredList = tasks.filter((task) => {
+    return task.priority == priority;
   });
+
+  return filteredList;
 }

@@ -6,7 +6,8 @@
 
 body {
   /* background: linear-gradient(to right, #667db6, #0082c8, #0082c8, #667db6); */
-  background: linear-gradient(to right, #eb5757, #000000);
+  /* background: linear-gradient(to right, #eb5757, #000000); */
+  background: linear-gradient(to right, #1c92d2, #f2fcfe);
   color: #fff;
   font-family: 'Roboto Mono', sans-serif;
   min-height: 100vh;
@@ -97,9 +98,15 @@ select {
   color: #000000;
   font-size: 1.5rem;
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-end;
   align-items: center;
   transition: all 0.4s ease-in-out;
+  border-radius: 5px;
+}
+
+.todo li {
+  padding-right: 8rem;
+  font-weight: bold;
 }
 
 .delete-btn,
@@ -116,9 +123,6 @@ select {
   background: green;
 }
 
-li.todo-item {
-  padding: 0rem 15rem;
-}
 .completed {
   text-decoration: line-through;
   opacity: 0.4;

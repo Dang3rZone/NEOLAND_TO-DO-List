@@ -8,8 +8,16 @@ const todoButton = document.querySelector('.todo-btn');
 const selectPriority = document.querySelector('.select-priority');
 const filterOption = document.querySelector('.filter-todo');
 
+// CREATING
 todoButton.addEventListener('click', addTodo);
+
+// DELETING
 todoList.addEventListener('click', deleteTask);
-// FILTER
+
+// FILTER BY PRIORITY
 filterOption.addEventListener('change', filterTodo);
-todoFilter.addEventListener('focus', getTypeNombre);
+
+// FILTER TASKS BY NAME
+// todoFilter.addEventListener('keyup', filterTodo);
+
+printTasks(tasks);
