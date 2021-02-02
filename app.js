@@ -5,7 +5,8 @@ let idCounter = 0;
 // print data tasks array
 const printTasks = (task) => {
   todoList.innerHTML = '';
-  for (let todo of task) {
+  let todo;
+  for (todo of task) {
     switch (todo.priority) {
       case 'important':
         color = 'tomato';
@@ -32,9 +33,12 @@ const printTasks = (task) => {
 
 // ADD NEW TODO TO THE LIST
 function addTodo(e) {
+  // STOP THE LOADING
   e.preventDefault();
   if (selectPriority.value == '' || todoInput == '') {
-    alert('Gotta add a task dude!');
+    // DONT LET NEW TODO WITH ' '
+    // alert('Gotta add a task dude!');
+    todoList.style.display = 'block';
   } else {
     switch (selectPriority.value) {
       case 'important':
@@ -60,6 +64,32 @@ function addTodo(e) {
           ${btn}
     </div>`;
 
+    //CREATING ELEMENTS FOR THE TODOS BUT GOTTA DO THE WHOLE ID & TOO MUCH CODE
+
+    // const createTodo = document.createElement('div');
+    // createTodo.classList.add('todo');
+
+    // const newTodo = document.createElement('li');
+    // newTodo.innerText = todoInput.value;
+    // newTodo.classList.add('todo-item');
+
+    // createTodo.appendChild(newTodo);
+
+    // // TAKS DONE BTN
+    // const doneBtn = document.createElement('button');
+    // doneBtn.innerHTML = '<i class="fas fa-check-double"></i>';
+    // doneBtn.classList.add('complete-btn');
+    // createTodo.appendChild(doneBtn);
+
+    // // DELETE TASK BTN
+    // const deleteBtn = document.createElement('button');
+    // deleteBtn.innerHTML = '<i class="fas fa-trash-alt"></i>';
+    // deleteBtn.classList.add('delete-btn');
+    // createTodo.appendChild(deleteBtn);
+
+    // // ADDING TO LIST
+    // todoList.appendChild(createTodo);
+
     let newTodo = {
       id: idCounter,
       name: todoInput.value,
@@ -67,7 +97,7 @@ function addTodo(e) {
     };
     // push to array
     tasks.push(newTodo);
-    // clean input but alert only goes one time
+    // clean input but alert only goes one time || changed it to display block
     todoInput.value = '';
   }
 }

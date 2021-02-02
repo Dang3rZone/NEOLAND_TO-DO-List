@@ -39,9 +39,4 @@ tasks = [
     name: 'drink monster',
     priority: 'important',
   },
-  {
-    id: 8,
-    name: 'Social Media',
-    priority: 'daily',
-  },
 ];
