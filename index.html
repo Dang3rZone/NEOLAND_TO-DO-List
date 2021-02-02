@@ -15,7 +15,9 @@
       integrity="sha512-HK5fgLBL+xu6dm/Ii3z4xhlSUyZgTT9tuc/hSrtw6uzJOvgRr2a9jyxxT1ely+B+xFAmJKVSTbpM/CuL7qxO8w=="
       crossorigin="anonymous"
     />
-    <script src="data.js"></script>
+    <script src="data.js" defer></script>
+    <script src="app.js" defer></script>
+    <script src="selectors.js" defer></script>
 
     <link rel="stylesheet" href="styles.css" />
     <title>To-Do List</title>
@@ -24,7 +26,7 @@
   <body>
     <!-- TITLE -->
     <header>
-      <h1>Neoland To-do List</h1>
+      <h1>Neoland <span> To Do List</span></h1>
     </header>
 
     <!-- TASKS INPUT -->
@@ -43,20 +45,19 @@
       </form>
     </div>
     <!-- FILTERS -->
-    <div class="select">
-      <form>
-        <select name="todos" class="filter-todo">
-          <option value="">Select</option>
-          <!-- <option value="all">all</option>
+
+    <form>
+      <select name="todos" class="filter-todo">
+        <option value="">Select</option>
+        <!-- <option value="all">all</option>
           <option value="completed">completed</option>
           <option value="uncompleted">uncompleted</option> -->
-          <option value="important">important</option>
-          <option value="daily">daily</option>
-          <option value="monthly">monthly</option>
-        </select>
-        <input class="todo-input2" type="text" placeholder="search to-dos" />
-      </form>
-    </div>
+        <option value="important">important</option>
+        <option value="daily">daily</option>
+        <option value="monthly">monthly</option>
+      </select>
+      <input class="todo-input2" type="text" placeholder="search to-dos" />
+    </form>
 
     <!-- HERE GOES THE TASKS -->
     <div class="todo-container">
@@ -68,8 +69,5 @@
         </div> -->
       </ul>
     </div>
-
-    <script src="app.js"></script>
-    <script src="selectors.js"></script>
   </body>
 </html>

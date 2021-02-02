@@ -24,4 +24,24 @@ tasks = [
     name: 'Fasting',
     priority: 'important',
   },
+  {
+    id: 5,
+    name: 'go out with friends',
+    priority: 'monthly',
+  },
+  {
+    id: 6,
+    name: 'Make new react project',
+    priority: 'daily',
+  },
+  {
+    id: 7,
+    name: 'drink monster',
+    priority: 'important',
+  },
+  {
+    id: 8,
+    name: 'Social Media',
+    priority: 'daily',
+  },
 ];

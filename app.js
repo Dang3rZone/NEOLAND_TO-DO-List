@@ -1,13 +1,11 @@
 'use strict';
-
+let color;
 let idCounter = 0;
 
 // print data tasks array
 const printTasks = (task) => {
   todoList.innerHTML = '';
   for (let todo of task) {
-    let color = '';
-
     switch (todo.priority) {
       case 'important':
         color = 'tomato';
@@ -25,10 +23,9 @@ const printTasks = (task) => {
     idCounter++;
 
     todoList.innerHTML += `
-    <div class="todo ${todo.priority}" style='background-color:${color}'data-id='${idCounter}'>
+    <div class="todo" style='background-color:${color}'data-id='${idCounter}'>
         <li class="todo-item">${todo.name}</li>
-        <button class="complete-btn"><i class="fas fa-check-double"></i></button>
-        <button class="delete-btn"><i class="fas fa-trash-alt"></i></button>
+        ${btn}
     </div>`;
   }
 };
@@ -39,7 +36,6 @@ function addTodo(e) {
   if (selectPriority.value == '' || todoInput == '') {
     alert('Gotta add a task dude!');
   } else {
-    let color = '';
     switch (selectPriority.value) {
       case 'important':
         color = 'tomato';
@@ -61,18 +57,17 @@ function addTodo(e) {
     todoList.innerHTML += `
     <div class="todo" style='background-color:${color}' data-id='${idCounter}'>
           <li class="todo-item ${color}">${todoInput.value}</li>
-          <button class="complete-btn"><i class="fas fa-check-double"></i></button>
-          <button class="delete-btn"><i class="fas fa-trash-alt"></i></button>
+          ${btn}
     </div>`;
 
-    let newTask = {
+    let newTodo = {
       id: idCounter,
       name: todoInput.value,
       priority: selectPriority.value,
     };
     // push to array
-    tasks.push(newTask);
-    // clean inout but alert only goes one time
+    tasks.push(newTodo);
+    // clean input but alert only goes one time
     todoInput.value = '';
   }
 }
@@ -96,19 +91,31 @@ function deleteTask(e) {
 }
 
 // FILTER TASKS BY PRIORITY
-function filterTodo(e) {
+function filterPriority(e) {
   let type = e.target.value;
   let list = filterList(type, tasks);
-  if (type != '') {
-    printTasks(list);
-  } else {
-    printTasks(tasks);
-  }
+
+  type != '' ? printTasks(list) : printTasks(tasks);
 }
+
 function filterList(priority, tasks) {
-  let filteredList = tasks.filter((task) => {
-    return task.priority == priority;
-  });
+  let filteredList = tasks.filter((task) => task.priority == priority);
 
   return filteredList;
+}
+
+// FILTER BY TASK
+function filterTodo(name, todo) {
+  let filteredByName = todo.filter((task) =>
+    task.name.toLowerCase().includes(name.toLowerCase())
+  );
+
+  return filteredByName;
+}
+
+function filterTask(e) {
+  let type = e.target.value;
+  let list = filterTodo(type, tasks);
+
+  type != '' ? printTasks(list) : printTasks(tasks);
 }
